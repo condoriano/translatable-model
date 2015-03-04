@@ -10,9 +10,9 @@ use Condoriano\TranslatableModel\EloquentTrait as Translatable;
 class Article extends Eloquent {
 
 	use Translatable;
-  
-  # указываем какие аттрибуты мы хотим переводить
-  public $translatedAttributes = ['title', 'content'];
+
+	# указываем какие аттрибуты мы хотим переводить
+	public $translatedAttributes = ['title', 'content'];
 
 	# модель с полями
 	public $title_ru;
