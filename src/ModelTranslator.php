@@ -39,4 +39,26 @@ class ModelTranslator {
 
         return $this->model;
     }
+
+    function __get($name)
+    {
+        $locale = Lang::getLocale();
+
+        if (is_array($this->model->translatedAttributes) && in_array($name, $this->model->translatedAttributes))
+        {
+            return $this->model->{$name . '_' . $locale};
+        }
+    }
+
+    function __set($name, $value)
+    {
+        $locale = Lang::getLocale();
+
+        if (is_array($this->model->translatedAttributes) && in_array($name, $this->model->translatedAttributes))
+        {
+            return $this->model->{$name . '_' . $locale} = $value;
+        }
+    }
+
+
 }
