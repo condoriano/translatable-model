@@ -1,0 +1,26 @@
+{
+  "name": "condoriano/translatable-model",
+  "description": "Package for laravel.",
+  "keywords": [
+    "ORM",
+    "i18n",
+    "translation"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vladislav Maksimchuk",
+      "email": "vladmv@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "laravel/framework": ">=5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Condoriano\\TranslatableModel\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
