@@ -14,4 +14,17 @@ trait EloquentTrait {
         return $this->modelTranslator;
     }
 
+    public function toArray()
+    {
+        $attributes = $this->attributesToArray();
+        $attributes = array_merge($attributes, $this->relationsToArray());
+
+        # add translatable fields
+        foreach($this->translatedAttributes as $fieldName) {
+            $attributes[$fieldName] = $this->i18n->{$fieldName};
+        }
+
+        return $attributes;
+    }
+
 }
