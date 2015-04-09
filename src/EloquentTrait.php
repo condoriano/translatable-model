@@ -18,9 +18,22 @@ trait EloquentTrait {
     {
         $attributes = $this->attributesToArray();
         $attributes = array_merge($attributes, $this->relationsToArray());
+        $locales = array_keys(\I18n::getSupportedLocales());
+
+        if (isset($this->translatedHidden) && $this->translatedHidden === true)
+        {
+            foreach ($locales as $locale)
+            {
+                foreach ($this->translatedAttributes as $fieldName)
+                {
+                    unset($attributes[$fieldName . '_' . $locale]);
+                }
+            }
+        }
 
         # add translatable fields
-        foreach($this->translatedAttributes as $fieldName) {
+        foreach ($this->translatedAttributes as $fieldName)
+        {
             $attributes[$fieldName] = $this->i18n->{$fieldName};
         }
 
